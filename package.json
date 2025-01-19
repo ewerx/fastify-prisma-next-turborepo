@@ -1,5 +1,5 @@
 {
-  "name": "moonlight-app",
+  "name": "appname",
   "private": true,
   "scripts": {
     "build": "turbo build",
