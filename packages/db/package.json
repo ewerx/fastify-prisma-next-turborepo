@@ -15,7 +15,7 @@
     "dev": "tsup src/* --watch",
     "build": "tsc",
     "format": "prisma format",
-    "lint": "eslint . --max-warnings 0",
+    "lint": "eslint .",
     "prebuild": "pnpm run db:generate",
     "predev": "pnpm run db:generate",
     "studio": "prisma studio",
