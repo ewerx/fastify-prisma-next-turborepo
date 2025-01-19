@@ -1,11 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env", "**/.env.*local"],
+  "globalEnv": ["NODE_ENV"],
   "ui": "tui",
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "db:migrate:deploy": {},
+    "db:push": {},
+    "db:generate": {
+      "inputs": ["prisma/schema.prisma"]
     },
     "lint": {
       "dependsOn": ["^lint"]

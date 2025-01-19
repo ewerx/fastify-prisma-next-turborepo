@@ -1,0 +1,40 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "exports": {
+    ".": {
+      "types": "./src/client.ts",
+      "default": "./dist/client.js"
+    }
+  },
+  "scripts": {
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push --skip-generate",
+    "dev": "tsup src/* --watch",
+    "build": "tsc",
+    "format": "prisma format",
+    "lint": "eslint . --max-warnings 0",
+    "prebuild": "pnpm run db:generate",
+    "predev": "pnpm run db:generate",
+    "studio": "prisma studio",
+    "console": "node --require ts-node/register/transpile-only --experimental-repl-await src/console.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.2.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.18.0",
+    "prisma": "^6.2.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.1.0",
+    "typescript": "^5.7.3",
+    "zod": "^3.24.1",
+    "zod-prisma-types": "^3.2.1"
+  }
+}
